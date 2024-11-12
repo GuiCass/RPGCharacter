@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <!-- Campo de Título da Habilidade -->
+    <EditText
+        android:id="@+id/ability_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Título da Habilidade"
+        android:textSize="16sp"
+        android:textColor="#3c2f2f"
+        android:inputType="text" />
+
+    <!-- Campo de Descrição da Habilidade -->
+    <EditText
+        android:id="@+id/ability_description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Descrição da Habilidade"
+        android:textSize="14sp"
+        android:textColor="#3c2f2f"
+        android:inputType="textMultiLine" />
+
+    <!-- Layout Horizontal para Botões -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="8dp">
+
+        <!-- Botão de Editar Habilidade -->
+        <Button
+            android:id="@+id/edit_ability_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Editar"
+            android:backgroundTint="#3c2f2f"
+            android:textColor="#FFFFFF"
+            android:layout_marginEnd="4dp" />
+
+        <!-- Botão de Excluir Habilidade -->
+        <Button
+            android:id="@+id/delete_ability_button"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Excluir"
+            android:backgroundTint="#d32f2f"
+            android:textColor="#FFFFFF"
+            android:layout_marginStart="4dp" />
+    </LinearLayout>
+</LinearLayout>

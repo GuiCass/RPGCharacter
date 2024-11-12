@@ -1,0 +1,46 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:background="#f9f5e3"
+    android:padding="16dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/personagem_rpg"
+        android:textSize="24sp"
+        android:fontFamily="sans-serif-condensed"
+        android:textColor="#3c2f2f"
+        android:paddingBottom="16dp"
+        android:layout_gravity="center_horizontal" />
+
+    <Button
+        android:id="@+id/button_add_character"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/cadastrar_personagem"
+        android:backgroundTint="#3c2f2f"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_view_characters"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/visualizar_personagens"
+        android:backgroundTint="#3c2f2f"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/button_translate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/translate"
+        android:backgroundTint="#3c2f2f"
+        android:textColor="#FFFFFF"
+        android:layout_marginTop="16dp" />
+
+</LinearLayout>

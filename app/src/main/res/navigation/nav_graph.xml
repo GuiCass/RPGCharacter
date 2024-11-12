@@ -1,0 +1,96 @@
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/menuFragment">
+
+    <!-- Menu Fragment -->
+    <fragment
+        android:id="@+id/menuFragment"
+        android:name="com.example.myrpgcharacter.fragment.MenuFragment"
+        android:label="Menu">
+        <action
+            android:id="@+id/action_menuFragment_to_characterFragment"
+            app:destination="@id/characterFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_characterListFragment"
+            app:destination="@id/characterListFragment" />
+        <action
+            android:id="@+id/action_menuFragment_to_translationFragment"
+            app:destination="@id/translationFragment" />
+    </fragment>
+
+    <!-- Character Fragment -->
+    <fragment
+        android:id="@+id/characterFragment"
+        android:name="com.example.myrpgcharacter.fragment.CharacterFragment"
+        android:label="Cadastrar Personagem" />
+
+    <!-- Character List Fragment -->
+    <fragment
+        android:id="@+id/characterListFragment"
+        android:name="com.example.myrpgcharacter.fragment.CharacterListFragment"
+        android:label="Lista de Personagens">
+        <action
+            android:id="@+id/action_characterListFragment_to_menuFragment"
+            app:destination="@id/menuFragment" />
+        <action
+            android:id="@+id/action_characterListFragment_to_characterImageFragment"
+            app:destination="@id/characterImageFragment">
+            <argument
+                android:name="characterId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <!-- Character Fragment Visualize -->
+    <fragment
+        android:id="@+id/characterFragmentVisualize"
+        android:name="com.example.myrpgcharacter.fragment.CharacterFragmentVisualize"
+        android:label="Visualizar Personagem">
+        <action
+            android:id="@+id/action_characterFragmentVisualize_to_characterImageFragment"
+            app:destination="@id/characterImageFragment"
+            app:enterAnim="@anim/flip_in_front"
+            app:exitAnim="@anim/flip_out_back"
+            app:popEnterAnim="@anim/flip_in_back"
+            app:popExitAnim="@anim/flip_out_front">
+            <argument
+                android:name="characterId"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_characterFragmentVisualize_to_characterListFragment"
+            app:destination="@id/characterListFragment" />
+    </fragment>
+
+    <!-- Character Image Fragment -->
+    <fragment
+        android:id="@+id/characterImageFragment"
+        android:name="com.example.myrpgcharacter.fragment.CharacterImageFragment"
+        android:label="Imagem do Personagem">
+        <action
+            android:id="@+id/action_characterImageFragment_to_characterFragmentVisualize"
+            app:destination="@id/characterFragmentVisualize"
+            app:enterAnim="@anim/flip_in_back"
+            app:exitAnim="@anim/flip_out_front"
+            app:popEnterAnim="@anim/flip_in_front"
+            app:popExitAnim="@anim/flip_out_back">
+            <argument
+                android:name="characterId"
+                app:argType="integer" />
+        </action>
+        <action
+            android:id="@+id/action_characterImageFragment_to_characterListFragment"
+            app:destination="@id/characterListFragment">
+            <argument
+                android:name="characterId"
+                app:argType="integer" />
+        </action>
+    </fragment>
+
+    <!-- Translation Fragment -->
+    <fragment
+        android:id="@+id/translationFragment"
+        android:name="com.example.myrpgcharacter.fragment.TranslationFragment"
+        android:label="Tradução" />
+</navigation>

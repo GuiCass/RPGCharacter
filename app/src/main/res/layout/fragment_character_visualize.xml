@@ -1,0 +1,618 @@
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#f9f5e3"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:fontFamily="sans-serif-condensed"
+            android:paddingBottom="10dp"
+            android:text="@string/character_registration"
+            android:textColor="#3c2f2f"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/arrowLeft"
+            android:layout_width="26dp"
+            android:layout_height="34dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@string/back_to_image"
+            android:src="@drawable/seta_esquerda"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/character_name"
+            android:layout_width="0dp"
+            android:layout_height="48dp"
+            android:hint="@string/character_name"
+            android:background="@drawable/custom_edit_text"
+            android:textColor="#3c2f2f"
+            android:padding="10dp"
+            app:layout_constraintTop_toBottomOf="@id/title_text"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/character_race_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/character_name"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/character_race"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColor="#3c2f2f"
+                android:padding="10dp"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/character_class_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            app:layout_constraintTop_toBottomOf="@id/character_race_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <AutoCompleteTextView
+                android:id="@+id/character_class"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:background="@drawable/custom_edit_text"
+                android:textColor="#3c2f2f"
+                android:padding="10dp"
+                android:inputType="none" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/stats_container"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/character_class_layout"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Armor (Classe de Armadura) -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="35dp">
+
+                <ImageView
+                    android:id="@+id/armor_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/armor_empty"
+                    android:contentDescription="@string/armor_class"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <EditText
+                    android:id="@+id/character_armor"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/transparent"
+                    android:gravity="center"
+                    android:textSize="18sp"
+                    android:hint="@string/value"
+                    android:textColor="#3c2f2f"
+                    android:inputType="number"
+                    android:focusableInTouchMode="true" />
+            </FrameLayout>
+
+            <!-- Life (Vida) -->
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/life_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:clickable="false"
+                    android:contentDescription="@string/life_value"
+                    android:focusable="false"
+                    android:src="@drawable/heart_empty" />
+
+                <EditText
+                    android:id="@+id/character_life"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/transparent"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textColor="#3c2f2f"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent">
+                <ImageView
+                    android:id="@+id/life_icon2"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginTop="55dp"
+                    android:clickable="false"
+                    android:contentDescription="@string/life_value"
+                    android:focusable="false"
+                    android:src="@drawable/heart_empty" />
+
+                <EditText
+                    android:id="@+id/character_overlife"
+                    android:layout_width="30dp"
+                    android:layout_height="25dp"
+                    android:layout_marginTop="55sp"
+                    android:background="@android:color/transparent"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textColor="#3c2f2f"
+                    android:textSize="11sp" />
+            </FrameLayout>
+
+            <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/mana_icon"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:src="@drawable/circle"
+                    android:contentDescription="@string/mana_value"
+                    android:clickable="false"
+                    android:focusable="false" />
+
+                <EditText
+                    android:id="@+id/character_mana"
+                    android:layout_width="80dp"
+                    android:layout_height="80dp"
+                    android:background="@android:color/transparent"
+                    android:focusableInTouchMode="true"
+                    android:gravity="center"
+                    android:hint="@string/value"
+                    android:inputType="number"
+                    android:textColor="#3c2f2f"
+                    android:textSize="18sp" />
+            </FrameLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/attributes_lvl_grid"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/stats_container"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="@string/lvl"
+                    android:textColor="#3c2f2f"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/character_lvl"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/lvl"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/attributes_life_grid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/attributes_lvl_grid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="@string/max_mana"
+                    android:textColor="#3c2f2f"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/character_max_mana"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/max_mana"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/maxLife"
+                    android:textSize="14sp"
+                    android:textColor="#3c2f2f"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/character_max_life"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/maxLife"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Atributos com rótulos individuais acima de cada campo -->
+        <LinearLayout
+            android:id="@+id/attributes_grid"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/attributes_life_grid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <!-- Força -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal"
+                    android:text="@string/strength"
+                    android:textColor="#3c2f2f"
+                    android:textSize="14sp" />
+
+                <EditText
+                    android:id="@+id/character_strength"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/strength"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <!-- Destreza -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dexterity"
+                    android:textSize="14sp"
+                    android:textColor="#3c2f2f"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/character_dexterity"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/dexterity"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <!-- Constituição -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/constitution"
+                    android:textSize="14sp"
+                    android:textColor="#3c2f2f"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/character_constitution"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/constitution"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Segunda linha de atributos -->
+        <LinearLayout
+            android:id="@+id/attributes_grid2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintTop_toBottomOf="@id/attributes_grid"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp">
+
+            <!-- Sabedoria -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/wisdom"
+                    android:textSize="14sp"
+                    android:textColor="#3c2f2f"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/character_wisdom"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/wisdom"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <!-- Inteligência -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1"
+                android:layout_marginEnd="8dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/intelligence"
+                    android:textSize="14sp"
+                    android:textColor="#3c2f2f"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/character_intelligence"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/intelligence"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+
+            <!-- Carisma -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_weight="1">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/charisma"
+                    android:textSize="14sp"
+                    android:textColor="#3c2f2f"
+                    android:fontFamily="sans-serif-condensed"
+                    android:gravity="center_horizontal" />
+
+                <EditText
+                    android:id="@+id/character_charisma"
+                    android:layout_width="match_parent"
+                    android:layout_height="48dp"
+                    android:hint="@string/charisma"
+                    android:background="@drawable/custom_edit_text"
+                    android:textColor="#3c2f2f"
+                    android:padding="10dp"
+                    android:inputType="number" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Campo de Notas -->
+        <EditText
+            android:id="@+id/character_notes"
+            android:layout_width="0dp"
+            android:layout_height="120dp"
+            android:hint="@string/notes"
+            android:background="@drawable/custom_edit_text"
+            android:textColor="#3c2f2f"
+            android:padding="10dp"
+            android:inputType="textMultiLine"
+            app:layout_constraintTop_toBottomOf="@id/attributes_grid2"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp" />
+
+        <!-- Seção de Habilidades -->
+        <LinearLayout
+            android:id="@+id/abilities_section"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@id/character_notes"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
+
+            <!-- Cabeçalho de Habilidades -->
+            <LinearLayout
+                android:id="@+id/abilities_header"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical"
+                android:padding="8dp"
+                android:clickable="true"
+                android:focusable="true"
+                android:foreground="?attr/selectableItemBackgroundBorderless">
+
+                <TextView
+                    android:id="@+id/abilities_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/habilidades"
+                    android:textSize="18sp"
+                    android:textColor="#3c2f2f"
+                    android:fontFamily="sans-serif-medium" />
+
+                <ImageView
+                    android:id="@+id/expand_icon"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/v"
+                    android:contentDescription="@string/expandir_colapsar_habilidades" />
+            </LinearLayout>
+
+            <!-- Layout Expansível para as Habilidades -->
+            <LinearLayout
+                android:id="@+id/abilities_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone"
+                android:padding="8dp">
+
+                <!-- Botão para Adicionar Nova Habilidade -->
+                <ImageButton
+                    android:id="@+id/add_ability_button"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:src="@drawable/ic_add"
+                    android:contentDescription="@string/adicionar_habilidade"
+                    android:layout_gravity="end"
+                    android:layout_marginBottom="8dp"
+                    android:background="?attr/selectableItemBackgroundBorderless"
+                    app:tint="#3c2f2f" />
+
+                <!-- RecyclerView para Listar Habilidades -->
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/abilities_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <!-- Botão de Salvar -->
+        <Button
+            android:id="@+id/button_editar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/editar_personagem"
+            app:layout_constraintTop_toBottomOf="@id/abilities_section"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#3c2f2f"
+            android:textColor="#FFFFFF" />
+
+        <!-- Botão de Retorno -->
+        <Button
+            android:id="@+id/button_return"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/voltar_para_personagens"
+            app:layout_constraintTop_toBottomOf="@id/button_editar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginTop="16dp"
+            android:backgroundTint="#3c2f2f"
+            android:textColor="#FFFFFF" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>
